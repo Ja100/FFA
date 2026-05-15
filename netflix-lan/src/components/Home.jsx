@@ -4,7 +4,7 @@ function Home () {
         <nav className='flex justify-between px-25 py-5' >
             <h1 className="text-7xl  text-red-500">NETFLIX</h1>
             <ul className="flex justify-items-center text-white">
-                <div className=' text-md font-medium flex justify-center border border-white/30 rounded-md w-36 h-10 py-2 mx-3'>
+                <div className='text-md font-medium flex justify-center border border-white/30 rounded-md w-36 h-10 py-2 mx-3'>
                     <li>
                     <Languages/>
                     </li>
