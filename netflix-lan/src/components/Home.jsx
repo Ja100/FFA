@@ -10,13 +10,13 @@ function Home () {
                     </li>
                     <li>
                     <select>
-                        <option value="">English</option>
-                        <option value="">Francais</option>
+                        <option value="" className='text-black'>English</option>
+                        <option value="" className='text-black'>Francais</option>
                     </select>
                 </li>
                 </div>
                 <li>
-                    <button type="submit" className='bg-red-600 w-24 h-10 px-3 rounded-md font-medium'>Sign in</button>
+                    <button type="submit" className='bg-red-600 hover:bg-red-700 cursor-pointer w-24 h-10 px-3 rounded-md font-medium'>Sign in</button>
                 </li>
             </ul>
         </nav>
