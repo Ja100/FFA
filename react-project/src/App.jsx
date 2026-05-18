@@ -2,9 +2,9 @@ import {Navbar}  from "./components/Navbar.jsx";
 import Contacts from "./pages/contacts.jsx";
 import Services from "./pages/services.jsx";
 import { Home } from "./pages/home.jsx";
-// import Login from "./pages/login.jsx";
-import { Routes, Route } from "react-router-dom";
 import Login from "./pages/login.jsx";
+import { Routes, Route } from "react-router-dom";
+
 function App(){
 
   return(
