@@ -1,28 +1,11 @@
-import { Navbar } from "./components/navbar.jsx";
+import {Navbar}  from "./components/Navbar.jsx";
 import Contacts from "./pages/contacts.jsx";
 import Services from "./pages/services.jsx";
 import { Home } from "./pages/home.jsx";
+// import Login from "./pages/login.jsx";
 import { Routes, Route } from "react-router-dom";
-import { useState , useEffect} from "react";
-
-
+import Login from "./pages/login.jsx";
 function App(){
-  const [result, setResult] = useState();
-const  Display = () => {
-  const names = ["Chris", "John", "Dave", "Henry", "Alan", "Donald"];
-  const count = names.length;
-
-  if (count === 0) return <p>no one like this</p>
-  if (count === 1) return <p>{names[0]} likes this</p>
-  if (count === 2) return <p>{names[0]} , {names[1]} likes this</p>
-  if (count === 3) return <p>{names[0]} , {names[1]} , {names[2]} likes this </p>
-  return `${names[0]}, ${names[1]},   ${names[0]} , ${names[1]} and 2 others likes this`
-}
-useEffect(()=> {
-  setResult(
-    Display()
-  )
-},[])
 
   return(
     <>
@@ -31,15 +14,9 @@ useEffect(()=> {
       <Route path="/" element={<Home/>} />
       <Route path="/contact" element = {<Contacts />}/>
       <Route path="/service" element = {<Services />}/>
+      <Route path="/login" element = {<Login />}/>
     </Routes>
-    
-
-    
-
-      <div>
-        <p>{result}</p>
-        
-      </div>
+  
   
 
     
@@ -47,6 +24,4 @@ useEffect(()=> {
     
   )
 }
-
-
 export default App;
