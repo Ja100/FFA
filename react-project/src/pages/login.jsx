@@ -1,31 +1,41 @@
 import { useState } from "react"
+import { Navigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 function Login(){
+    const user = {
+        username: "Jallen",
+        password: "Jallen100"
+    };
+
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [isLoggedin, setisLoggedin] = useState(false);
+
+    if (isLoggedin) {
+        return <Navigate to="/dashboard" replace={true} />;
+    }
+
     function handleSubmit(e){
         e.preventDefault();
-    }
-    function validation() {
-        if(username.length < 5 || !username.includes('@')) {
-            console.log('username must be 5 characters long containing @'); 
-            return;  
-        }
-        const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d).+$/;
-        if(!passwordRegex.test(password) || password.length < 8){
-            console.log('password must be 8 characters long containing both numbers and letters');
+        if(username === user.username && password === user.password){
+            console.log('SUCCESS');
+            setisLoggedin(true);
             return;
-            
-        }  
-         
-        console.log('Validation Passed..!');
+
+        } else{
+            console.log('Invalid username or password!');
+            return;
+        }
         
     }
+    
+    
 
 
     return(
     <>
     <div className="flex justify-center">
-        <form action="" onClick={handleSubmit} 
+        <form action=""
             className=" flex flex-col gap-4 justify-center items-center my-50 w-100 border bg-blue-300 text-xl py-5 px-3">
             <h1>Login Form</h1>
             <input type="text" placeholder="Username"
@@ -38,7 +48,7 @@ function Login(){
             value={password}
             className="border-2 rounded-md px-3 h-10  placeholder:text-white"/>
             <button
-            onClick={validation}
+            onClick={handleSubmit}
             className="border-2 rounded-md font-semibold w-30 bg-blue-50 h-10 cursor-pointer hover:bg-blue-600">
                 Log in</button>
             <p>{username}</p>
