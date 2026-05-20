@@ -1,8 +1,8 @@
-function Services(){
+function Service(){
     return(
         <>
             <h1>Services</h1>
         </>
     )
 }
-export default Services
+export default Service;

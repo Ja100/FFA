@@ -11,7 +11,10 @@ export const Navbar = () => {
                     <Link to="/contact">Contacts</Link>
                 </li>
                 <li className='text-sm'>
-                    <Link to="/service">Services</Link>
+                    <Link to="/service">Service</Link>
+                </li>
+                <li>
+                    <Link  to="/services">Services</Link>
                 </li>
                 <li className='text-sm  bg-blue-500 px-2 py-1 rounded-md'>
                     <Link to="/login">Login</Link>

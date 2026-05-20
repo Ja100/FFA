@@ -1,19 +1,25 @@
 import { useState } from "react";
-function LogIn() {
+import { Navigate } from "react-router-dom";
+function LogIn(){
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [star, setStar] = useState("");
-    function validateForm(){
-        if (username.length < 6){
-            console.log("username must be greater than 6 character")
-        }
-        if(password.length < 8){
-            console.log("password must be greater than 8 character")
-        }
-    }
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const user = {
+        username: "admin",
+        password: "admin123"
+    };
     function handleSubmit(e){
         e.preventDefault();
-        validateForm();
+        if(username === user.username && password === user.password){
+            console.log("Login successful");
+            setIsLoggedIn(true);
+        } else {
+            console.log("Invalid username or password");
+        }
+    }
+    if(isLoggedIn){
+        return <Navigate to="/dashboard2" state={user}/>
     }
     return (
         <div className="bg-gray-600 text-white font-sans p-5 flex 
