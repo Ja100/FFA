@@ -12,18 +12,21 @@ function Login(){
     const [isLoggedin, setisLoggedin] = useState(false);
 
     if (isLoggedin) {
-        return <Navigate to="/dashboard" replace={true} />;
+        return <Navigate to="/dashboard" state={{ user: {username: username} }}/>;
     }
 
     function handleSubmit(e){
         e.preventDefault();
         if(username === user.username && password === user.password){
-            console.log('SUCCESS');
+            alert('SUCCESS');
             setisLoggedin(true);
             return;
 
+        }
+        else if(username === '' || password === ''){
+            alert('fill the FIELDS')
         } else{
-            console.log('Invalid username or password!');
+            alert('Invalid username or password!');
             return;
         }
         
