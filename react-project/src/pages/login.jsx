@@ -18,7 +18,7 @@ function Login(){
     function handleSubmit(e){
         e.preventDefault();
         if(username === user.username && password === user.password){
-            alert('SUCCESS');
+            alert('Loggedin SUCCESSFUL');
             setisLoggedin(true);
             return;
 
@@ -39,7 +39,7 @@ function Login(){
     <>
     <div className="flex justify-center">
         <form action=""
-            className=" flex flex-col gap-4 justify-center items-center my-50 w-100 border bg-blue-300 text-xl py-5 px-3">
+            className=" flex flex-col gap-4 justify-center items-center my-50 w-100 border-2 rounded-xl bg-blue-300 text-xl py-5 px-3">
             <h1>Login Form</h1>
             <input type="text" placeholder="Username"
             onChange={(e)=> setUsername(e.target.value)}
