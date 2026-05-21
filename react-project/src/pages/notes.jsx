@@ -1,13 +1,12 @@
 import { useState } from "react";
 
-
 function Notes (){
     const [title, setTitle] = useState("");
     const [tasks, setTasks] = useState ([
-        {id:1, title: "Shopping"},
-        {id:2, title: "Group Call"},
-        {id:3, title: "Cleaning"},
-        {id:4, title: "Drafting"},
+        {id:1, title: "Shopping", completed: false},
+        {id:2, title: "Group Call", completed: false},
+        {id:3, title: "Cleaning", completed: false},
+        {id:4, title: "Drafting", completed: false},
     ]);
     const [count, setCount] = useState(5);
 
@@ -26,6 +25,13 @@ function Notes (){
         setTasks([...tasks, newTask]);
         
     }
+
+    function ToggleCompleted(id){
+        setTasks(
+            tasks.map((task) => task.id === id ? {...task, completed : !task.completed} : task)
+        );
+    }
+
     return (
         <>
         <div className="bg-amber-800 my-20">
@@ -37,9 +43,6 @@ function Notes (){
                     className=" flex flex-col gap-4 justify-center items-center w-100 border-2 rounded-xl bg-cyan-800 text-xl py-5 px-3"
                     >
                         <h1 className=" text-2xl font-bold" >Add new Task</h1>
-                        {/* <input type="text" placeholder="ID of task..."
-                        className="border-2 rounded-md px-3 h-10 placeholder:text-white"
-                        /> */}
 
                         <input type="text" placeholder="Name of task..."
                         onChange={(e)=> setTitle(e.target.value)} value={title}
@@ -57,11 +60,17 @@ function Notes (){
                     <ul 
                         className="gap-4 p-2 flex flex-col">
                         {tasks.map(task => (
-                            <li key={task.id} className="text-white">
-                                {task.id} {task.title}
+                            <li key={task.id} 
+                            className={`text-white p-2 rounded 
+                            ${task.completed ?  "opacity-50 bg-amber-900/20" : 
+                                "hover:bg-amber-700/50" }`}>
+                                <span className={task.completed ? "line-through text-slate-400" : ""}>
+                                    {task.id} {task.title}
+                                </span>
                                 
-                            <button 
-                            className="bg-amber-500 cursor-pointer w-15 mx-3 py-2 my-2 rounded"> Select      
+                            <button onClick={() => ToggleCompleted(task.id)}
+                            className="bg-green-500 cursor-pointer w-15 mx-3 py-2 my-2 rounded"> 
+                            {task.completed ? "Undo" : "Done"}      
                             </button>
                             </li>
                         ))}
