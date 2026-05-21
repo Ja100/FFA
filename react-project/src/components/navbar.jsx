@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import {Navigation as NavIcon, Home as HomeIcon, Briefcase as ServiceIcon, Mail as ContactIcon, LogIn} from "lucide-react";
+import {Navigation as NavIcon, Home as HomeIcon, Briefcase as ServiceIcon, Mail as ContactIcon, NotepadText as Notepad, LogIn} from "lucide-react";
 export const Navbar = () => {
 
     return(
@@ -19,6 +19,11 @@ export const Navbar = () => {
                 <li 
                 className="text-sm h-10 border flex justify-center items-center gap-2 rounded-md  w-24  bg-teal-600  cursor-pointer hover:bg-blue-600">
                     <Link to="/service">Services</Link><ServiceIcon/>
+                </li>
+
+                <li 
+                className="text-sm h-10 border flex justify-center items-center gap-2 rounded-md  w-24  bg-green-600  cursor-pointer hover:bg-blue-600">
+                    <Link to="/notes">To-Do</Link><Notepad/>
                 </li>
                 <li 
                 className="text-sm h-10 border flex justify-center items-center gap-2 rounded-md  w-24  bg-cyan-700  cursor-pointer hover:bg-blue-600">

@@ -9,16 +9,16 @@ function Login(){
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [isLoggedin, setisLoggedin] = useState(false);
+    const [isLoggedIn, setisLoggedin] = useState(false);
 
-    if (isLoggedin) {
-        return <Navigate to="/dashboard" state={{ user: {username: username} }}/>;
+    if (isLoggedIn) {
+        return <Navigate to="/dashboard" state={{ isLoggedIn: {username: username} }}/>;
     }
 
     function handleSubmit(e){
         e.preventDefault();
         if(username === user.username && password === user.password){
-            alert('Loggedin SUCCESSFUL');
+            alert('LoggedIn SUCCESSFUL');
             setisLoggedin(true);
             return;
 
