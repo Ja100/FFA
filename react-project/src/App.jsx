@@ -13,7 +13,7 @@ function App(){
   return(
     <>
      <Navbar/>
-    <EventSummary/>
+    {/* <EventSummary/> */}
       <Routes>
       <Route path="/" element={<Home/>} />
       <Route path="/contact" element = {<Contacts />}/>

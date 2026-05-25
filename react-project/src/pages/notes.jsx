@@ -34,8 +34,8 @@ function Notes (){
 
     return (
         <>
-        <div className="bg-amber-800 my-20">
-            <div>
+        <div className="flex justify-center">
+            <div className="flex items-center flex-col">
                 <h1 className=" text-2xl font-bold m-7"> TO-DO App </h1>
 
                 <div>
@@ -55,19 +55,22 @@ function Notes (){
                         
                     </form>
                 </div>
-
-                <h1 className=" text-2xl font-bold p-2"> Tasks Number {tasks.length} </h1>
+                <div className="flex gap-5">
+                    <div>
+                        <h1 className=" text-2xl font-bold p-2"> Tasks Number {tasks.length} </h1>
                     <ul 
                         className="gap-4 p-2 flex flex-col">
                         {tasks.map(task => (
                             <li key={task.id} 
-                            className={`text-white p-2 rounded 
+                            className={`text-indigo-950 font-bold p-2 
                             ${task.completed ?  "opacity-50 bg-amber-900/20" : 
                                 "hover:bg-amber-700/50" }`}>
+                                    
                                 <span className={task.completed ? "line-through text-slate-400" : ""}>
+                                    
                                     {task.id} {task.title}
                                 </span>
-                                
+
                             <button onClick={() => ToggleCompleted(task.id)}
                             className="bg-green-500 cursor-pointer w-15 mx-3 py-2 my-2 rounded"> 
                             {task.completed ? "Undo" : "Done"}      
@@ -75,6 +78,17 @@ function Notes (){
                             </li>
                         ))}
                     </ul>
+                
+                    </div>
+                    <div> <h1 className="text-2xl font-bold p-2">Completed Tasks</h1>
+                        <ul>
+                            {tasks.map(task => {
+                                
+                            })}
+                        </ul>
+                    </div>
+                    
+                </div>
             </div>
         
         </div>
