@@ -1,41 +1,54 @@
 import { useState } from "react";
+import Portal from "../components/Portal"
     
 export const Home = ()=>{
 
-    const [text, setText] = useState("");
-    const [student, setStudent] = useState({
-        username : '',
-        password : ''
-    });
-    const [choice, setChoice] = useState(0);
-    const [gender, setGender] = useState("")
-    const [selectedColors, setSelectedColors ] = useState([]);
-    const handleText = (e) => {
-        setText(e.target.value)
-    }
+    const [isOpen, setIsOpen] =useState(true)
+
+    // const [text, setText] = useState("");
+    // const [student, setStudent] = useState({
+    //     username : '',
+    //     password : ''
+    // });
+    // const [choice, setChoice] = useState(0);
+    // const [gender, setGender] = useState("")
+    // const [selectedColors, setSelectedColors ] = useState([]);
+    // const handleText = (e) => {
+    //     setText(e.target.value)
+    // }
     
-    const handleCheckBox = (e) => {
-        const {value, checked} = e.target;
-        if(checked){
-            setSelectedColors([...selectedColors, value])
-        } else{
-            setSelectedColors(selectedColors.filter((color) => color !==value));
-        }
-    }
-    const handleChange = (e) => {
-        const {name, value} = e.target;
-        setStudent((prev) => ({
-            ...prev,
-            [name] : value
-        }))
-    }
+    // const handleCheckBox = (e) => {
+    //     const {value, checked} = e.target;
+    //     if(checked){
+    //         setSelectedColors([...selectedColors, value])
+    //     } else{
+    //         setSelectedColors(selectedColors.filter((color) => color !==value));
+    //     }
+    // }
+    // const handleChange = (e) => {
+    //     const {name, value} = e.target;
+    //     setStudent((prev) => ({
+    //         ...prev,
+    //         [name] : value
+    //     }))
+    // }
 
     return (
         <>
-        <div className="flex flex-col gap-10 justify-center items-center">
-            <h1 className="flex items-center text-2xl gap-2 font-medium text-gray-800">HOME </h1>
 
-            <form action="">
+         <div>
+            
+            <h1 className=" text-2xl gap-2 font-medium text-gray-800">HOME </h1>
+            <div>
+                <h1>React Portal Test</h1>
+                <button className="border rounded-full bg-blue-500 w-28" onClick={() => setIsOpen(false)}>Open Portal</button>
+                <Portal isOpen={isOpen} onClose={() => setIsOpen(true)}>
+                    <h1>This is a Portal..!</h1>
+                </Portal>
+            </div>
+        </div>
+
+            {/* <form action="">
                 <label>Comments</label>
                 <textarea className="border-2" value={text} onChange={handleText}></textarea>
                 <p>Typed: {text}</p> <br/>
@@ -81,8 +94,7 @@ export const Home = ()=>{
                 checked={gender === "Female"}
                 onChange={(e)=> setGender(e.target.value)}/>
                 <p>Gender checked : {gender}</p>
-            </form>
-        </div>
+            </form>*/} 
         
             
         
