@@ -7,11 +7,20 @@ export const Home = ()=>{
         username : '',
         password : ''
     });
-    const [choice, setChoice] = useState("0");
+    const [choice, setChoice] = useState(0);
     const [gender, setGender] = useState("")
-    const [isChecked, setIsChecked] = useState("");
+    const [selectedColors, setSelectedColors ] = useState([]);
     const handleText = (e) => {
         setText(e.target.value)
+    }
+    
+    const handleCheckBox = (e) => {
+        const {value, checked} = e.target;
+        if(checked){
+            setSelectedColors([...selectedColors, value])
+        } else{
+            setSelectedColors(selectedColors.filter((color) => color !==value));
+        }
     }
     const handleChange = (e) => {
         const {name, value} = e.target;
@@ -52,14 +61,16 @@ export const Home = ()=>{
                 className="border p-1"/>                
                 <p>Password : {student.password}</p> <br/>
                 Blue <input type="checkbox" 
-                
-                value="Blue" onChange={(e)=> setIsChecked(e.target.value)}
+                value="Blue"
+                checked={selectedColors.includes('Blue')}
+                onChange={handleCheckBox}
                 /> 
                 Green <input type="checkbox" 
                 value="Green"
-                onChange={(e)=> setIsChecked(e.target.value)}
+                checked={selectedColors.includes('Green')}
+                onChange={handleCheckBox}
                 />
-                <p>Color {isChecked} has been checked</p> <br/>
+                <p>Color <strong>{selectedColors.join(', ') || 'NONE'}</strong> has been checked</p> <br/>
                 Male <input type="radio" name="gender"
                 value="Male"
                 checked={gender === "Male"}
