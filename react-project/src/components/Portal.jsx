@@ -6,7 +6,7 @@ function Portal({isOpen, onClose, children}){
         <div className="portal">
             <div className="portal-content">
                 {children}
-                <button className="border rounded-full bg-transparent w-16 m-2 text-gray-500 hover:bg-red-300 hover:text-gray-700"
+                <button className="border rounded-full bg-transparent w-16 m-2 cursor-pointer text-gray-500 hover:bg-red-300 hover:text-gray-700"
                 onClick={onClose}>Close</button>
             </div>
         </div>

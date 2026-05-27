@@ -40,7 +40,8 @@ export const Navbar = () => {
             </ul>
             
                 {isOpen && (    
-                <ul className='absolute top-14 md:hidden sm:flex bg-'>
+                <ul className='absolute top-16 md:hidden sm:flex 
+                flex flex-col items-center py-3 gap-3 rounded-md w-36 bg-emerald-700'>
                     <li 
                 className="text-sm h-10 border flex justify-center items-center gap-2 rounded-md  w-24  bg-amber-700  cursor-pointer hover:bg-blue-600">
                     <Link to="/" onClick={() => setIsOpen(false)}>Home</Link><HomeIcon/>

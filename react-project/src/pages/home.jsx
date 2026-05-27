@@ -41,7 +41,8 @@ export const Home = ()=>{
             <h1 className=" text-2xl gap-2 font-medium text-gray-800">HOME </h1>
             <div>
                 <h1>React Portal Test</h1>
-                <button className="border rounded-full bg-blue-500 w-28" onClick={() => setIsOpen(false)}>Open Portal</button>
+                <button className="border rounded-full bg-blue-500 w-28 cursor-pointer hover:bg-red-300 hover:text-gray-700" 
+                onClick={() => setIsOpen(false)}>Open Portal</button>
                 <Portal isOpen={isOpen} onClose={() => setIsOpen(true)}>
                     <h1>This is a Portal..!</h1>
                 </Portal>
