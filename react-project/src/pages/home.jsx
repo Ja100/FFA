@@ -1,9 +1,11 @@
-import { useState } from "react";
-import Portal from "../components/Portal"
+import { Suspense, lazy, useState } from "react";
+import Portal from "../components/Portal";
     
 export const Home = ()=>{
 
     const [isOpen, setIsOpen] =useState(true)
+    const Button = lazy(() => import("../components/Button"))
+    const Login  = lazy(()=> import("./login"));
 
     // const [text, setText] = useState("");
     // const [student, setStudent] = useState({
@@ -39,14 +41,26 @@ export const Home = ()=>{
          <div>
             
             <h1 className=" text-2xl gap-2 font-medium text-gray-800">HOME </h1>
-            <div>
+            {/* <div>
                 <h1>React Portal Test</h1>
                 <button className="border rounded-full bg-blue-500 w-28 cursor-pointer hover:bg-red-300 hover:text-gray-700" 
                 onClick={() => setIsOpen(false)}>Open Portal</button>
                 <Portal isOpen={isOpen} onClose={() => setIsOpen(true)}>
                     <h1>This is a Portal..!</h1>
                 </Portal>
+                
+            </div> */}
+            <div>
+                <Suspense fallback={
+                    <div className="flex h-screen items-center justify-center">
+                        <div className="text-4xl">Loading...</div>
+                    </div>
+                }>
+                <Button/>
+                <Login/>
+                </Suspense>
             </div>
+            
         </div>
 
             {/* <form action="">

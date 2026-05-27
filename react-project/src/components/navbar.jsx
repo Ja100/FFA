@@ -3,11 +3,14 @@ import {Navigation as NavIcon, Menu, X, Home as HomeIcon, Briefcase as ServiceIc
 import { useState } from 'react';
 export const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const toggleMenu = () => {
+        setIsOpen(!isOpen);
+    }
 
     return(
         <nav className='bg-gray-600 h-14 flex justify-end items-center px-4 text-white font-sans'>
             <button className='flex justify-center items-center w-14 h-14 hover:cursor-pointer md:hidden rounded-full hover:bg-gray-500'
-            onClick={() => setIsOpen(!isOpen)}>
+            onClick={toggleMenu}>
                 {isOpen ? <X/> : <Menu/>} 
             </button>
             
@@ -40,29 +43,29 @@ export const Navbar = () => {
             </ul>
             
                 {isOpen && (    
-                <ul className='absolute top-16 md:hidden sm:flex 
+                <div className='absolute top-16 md:hidden sm:flex 
                 flex flex-col items-center py-3 gap-3 rounded-md w-36 bg-emerald-700'>
                     <li 
                 className="text-sm h-10 border flex justify-center items-center gap-2 rounded-md  w-24  bg-amber-700  cursor-pointer hover:bg-blue-600">
-                    <Link to="/" onClick={() => setIsOpen(false)}>Home</Link><HomeIcon/>
+                    <Link to="/">Home</Link><HomeIcon/>
                 </li>
                 <li 
                 className="text-sm h-10 border flex justify-center items-center gap-2 rounded-md  w-24  bg-amber-500  cursor-pointer hover:bg-blue-600">
-                    <Link to="/contact" onClick={() => setIsOpen(false)}>Contacts</Link><ContactIcon/>
+                    <Link to="/contact">Contacts</Link><ContactIcon/>
                 </li>
                 <li 
                 className="text-sm h-10 border flex justify-center items-center gap-2 rounded-md  w-24  bg-teal-600  cursor-pointer hover:bg-blue-600">
-                    <Link to="/service" onClick={() => setIsOpen(false)}>Services</Link><ServiceIcon/>
+                    <Link to="/service">Services</Link><ServiceIcon/>
                 </li>
                 <li 
                 className="text-sm h-10 border flex justify-center items-center gap-2 rounded-md  w-24  bg-green-600  cursor-pointer hover:bg-blue-600">
-                    <Link to="/notes" onClick={() => setIsOpen(false)}>To-Do</Link><Notepad/>
+                    <Link to="/notes">To-Do</Link><Notepad/>
                 </li>
                 <li 
                 className="text-sm h-10 border flex justify-center items-center gap-2 rounded-md  w-24  bg-cyan-700  cursor-pointer hover:bg-blue-600">
-                    <Link to="/login" onClick={() => setIsOpen(false)}>Login</Link><LogIn/>
+                    <Link to="/login">Login</Link><LogIn/>
                 </li>
-                </ul>
+                </div>
             )}
         </nav>
     )
