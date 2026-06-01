@@ -15,16 +15,22 @@ function Navbar(){
             </Link>
             
             <ul className="flex items-center justify-end gap-3 text-md font-semibold font-serif">
-                <li className="bg-amber-500 rounded-md w-40 h-9 flex gap-2 items-center justify-center">
+                <li 
+                className="bg-amber-500 rounded-md w-40 h-9 cursor-pointer flex gap-2 items-center justify-center 
+                transition-all duration-300 ease-in-out hover:bg-slate-100 hover:text-slate-900">
                     <TestimonyIcon/>
                     <Link to="/testimonials">
                      Testimonials</Link> 
                 </li>
-                <li className="bg-green-500 w-32 h-9 flex gap-2 items-center justify-center rounded-md">
+                <li 
+                className="bg-green-500 w-32 h-9 cursor-pointer flex gap-2 items-center justify-center rounded-md
+                transition-all duration-300 ease-in-out hover:bg-slate-100 hover:text-slate-900">
                    <Sparkles/>
                    <Link to="/features">Features</Link>
                 </li>
-                <li className="bg-teal-600 w-32 h-9 flex gap-2 items-center justify-center rounded-md ">
+                <li 
+                className="bg-teal-600 w-32 h-9 cursor-pointer flex gap-2 items-center justify-center rounded-md 
+                transition-all duration-300 ease-in-out hover:bg-slate-100 hover:text-slate-900">
                     <PriceIcon/>
                     <Link to="/pricing">Pricing</Link>
                 </li>
