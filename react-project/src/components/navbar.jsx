@@ -11,7 +11,7 @@ export const Navbar = () => {
         <nav className='bg-gray-600 h-14 flex justify-end items-center px-4 text-white font-sans'>
             <button className='flex justify-center items-center w-14 h-14 hover:cursor-pointer md:hidden rounded-full hover:bg-gray-500'
             onClick={toggleMenu}>
-                {isOpen ? <X/> : <Menu/>} 
+                {isOpen ? <X className='w-7 h-7 bg-orange-700'/> : <Menu className='w-7 h-7 bg-emerald-500'/>} 
             </button>
             
             <ul className='hidden md:flex gap-3'> {/* Desktop Menu - Only visible to md screens */}

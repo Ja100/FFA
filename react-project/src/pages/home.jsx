@@ -5,7 +5,7 @@ export const Home = ()=>{
 
     const [isOpen, setIsOpen] =useState(true)
     const Button = lazy(() => import("../components/Button"))
-    const Login  = lazy(()=> import("./login"));
+    // const Login  = lazy(()=> import("./login"));
 
     // const [text, setText] = useState("");
     // const [student, setStudent] = useState({
@@ -50,7 +50,7 @@ export const Home = ()=>{
                 </Portal>
                 
             </div> */}
-            <div>
+            {/* <div>
                 <Suspense fallback={
                     <div className="flex h-screen items-center justify-center">
                         <div className="text-4xl">Loading...</div>
@@ -59,7 +59,7 @@ export const Home = ()=>{
                 <Button/>
                 <Login/>
                 </Suspense>
-            </div>
+            </div> */}
             
         </div>
 
