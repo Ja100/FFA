@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Navigate } from "react-router-dom";
+import { Mail, Lock } from "lucide-react";
 export default function Login () {
     const user = {
         username:   'Jallen',
@@ -32,20 +33,27 @@ export default function Login () {
             <form action="" onSubmit={handleSubmit}
             className="bg-mauve-400 border rounded-2xl h-96 w-96 my-28 flex gap-4 flex-col items-center justify-center">
                 <label className="py-4 text-white font-semibold  text-3xl"> Login Page </label>
-                <input type="email" placeholder="Email..."
+                <div className="flex items-center">
+                    <Mail className="absolute w-5 h-5"/>
+                    <input type="email" placeholder="Email..."
                 onChange={(e) => setEmail(e.target.value)}
                 value={email}
-                className="border rounded-sm h-11 w-3xs font-normal font-serif text-xl px-2
+                className="border rounded-lg h-11 w-full font-normal font-serif text-xl px-7
                 hover:border-2 hover:border-amber-300"
                 />
-                <input type="password" placeholder="Password..." 
+                </div>
+
+                <div className="flex items-center">
+                    <Lock className="absolute w-5 h-5 "/>
+                    <input type="password" placeholder="Password..."
                 onChange={(e) => setPassword(e.target.value)}
                 value={password}
-                className="border rounded-sm h-11 w-3xs font-normal font-serif text-xl px-2 
+                className="border  rounded-lg h-11 w-full font-normal font-serif text-xl px-7
                 hover:border-2 hover:border-amber-300"
                 />
+                </div>
                 <button type="submit"
-                className="border bg-blue-600 rounded-sm h-11 w-3xs text-white font-normal font-serif text-xl
+                className="border bg-blue-600 rounded-lg h-11 w-3xs text-white font-normal font-serif text-xl
                 hover:cursor-pointer hover:bg-sky-800"
                 >Login</button>
                 <a href="/register" className="underline">Register</a>
