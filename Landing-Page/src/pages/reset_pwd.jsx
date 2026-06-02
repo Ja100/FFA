@@ -1,36 +1,49 @@
 import { useState } from "react"
 import { Mail } from "lucide-react";
 export default function ResetPassword (props) {
+
+    const [mail, setMail] = useState('');
+    const [errors, setErrors] = useState({})
     
     function handleSubmit(e){
         e.preventDefault();
+        setErrors({})
         if(props.email === mail){
-            alert('Email Found.!');
+            setErrors( { message: 'Great, email Found..!', valid: true} )
             return;
         } else if(mail.trim() === ''){
-            alert('Enter Email..!');
+            setErrors( {message: 'Enter the Email Address..', valid:false })
             return;
         } else{
-            alert('Email Not Found')
+            setErrors( {message: 'Email not Found.!'} )
         }
     }
+    const isSuccess = errors.message === 'Great, email Found..!'
 
-    const [mail, setMail] = useState('');
 
     return (
         <div className="flex flex-col items-center">
             <form action="" onSubmit={handleSubmit}
             className="bg-mauve-400 border rounded-2xl h-96 w-96 my-28 flex gap-4 flex-col items-center justify-center">
-                <label className="py-4 text-white font-semibold  text-3xl"> Reset Page </label>
+                <label className="py-4 text-white font-semibold  text-3xl"> Reset Password </label>
                 <div className="flex items-center">
                     <Mail className="absolute mx-2 w-5 h-5"/>
                     <input type="email" placeholder="Email..."
                     value={mail}
                     onChange={(e) => setMail(e.target.value)}
-                className="border rounded-lg h-11 w-full font-normal font-serif text-xl pl-10 pr-10
-                hover:border-2 hover:border-amber-300"
-                />
+                className={`border rounded-lg h-11 w-full font-normal font-serif text-xl pl-10 pr-10
+                hover:border-2 hover:border-amber-300 
+                
+                />${errors.valid ? 
+                    'border-2 border-green-500' : 'border-2 border-red-500'} `} />
+
                 </div>
+                {errors.message && (
+                    <p className={`text-md font-medium 
+                        ${errors.valid ? 'text-green-900' : 'text-red-500'}
+                        `}>
+                        {errors.message}</p>
+                )}
                 <button type="submit"
                 className="border bg-blue-600 rounded-lg h-11 w-3xs text-white font-normal font-serif text-xl
                 hover:cursor-pointer hover:bg-sky-800"
