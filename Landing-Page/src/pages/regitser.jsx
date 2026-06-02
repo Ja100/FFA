@@ -38,47 +38,47 @@ export default function Register () {
     return (
         <div className="flex flex-col items-center">
             <form action="" onSubmit={handleSubmit}
-            className="bg-mauve-400 border rounded-2xl h-100 w-96 my-28 flex gap-4 flex-col items-center justify-center">
+            className="bg-gray-500 border rounded-2xl h-100 w-96 my-28 flex gap-4 flex-col items-center justify-center">
                 <label className="py-4 text-white font-semibold  text-3xl"> Sign UP </label>
-                <div className="flex items-center">
-                    <User className="absolute w-5 h-5"/>
+                <div className="relative flex items-center">
+                    <User className="absolute mx-2 w-5 h-5"/>
                     <input type="text" placeholder="Full Name..."
                 onChange={handleChange}
                 name="name"
                 value={newUser.name}
-                className="border rounded-lg h-11 w-full font-normal font-serif text-xl px-7
+                className="border rounded-lg h-11 w-full font-normal font-serif text-xl pl-10 pr-10
                 hover:border-2 hover:border-amber-300"
                 />
                 </div>
                 <div className="flex items-center">
-                    <Mail className="absolute w-5 h-5"/>
+                    <Mail className="absolute mx-2 w-5 h-5"/>
                     <input type="email" placeholder="Email..."
                 onChange={handleChange}
                 name="email"
                 value={newUser.email}
-                className="border rounded-lg h-11 w-full font-normal font-serif text-xl px-7
+                className="border rounded-lg h-11 w-full font-normal font-serif text-xl pl-10 pr-10
                 hover:border-2 hover:border-amber-300"
                 />
                 </div>
 
                 <div className="flex items-center">
-                    <Lock className="absolute w-5 h-5 "/>
+                    <Lock className="absolute mx-2 w-5 h-5 "/>
                     <input type="password" placeholder="Password..."
                 onChange={handleChange}
                 name="password"
                 value={newUser.password}
-                className="border  rounded-lg h-11 w-full font-normal font-serif text-xl px-7
+                className="border  rounded-lg h-11 w-full font-normal font-serif text-xl pl-10 pr-10
                 hover:border-2 hover:border-amber-300"
                 />
                 </div>
 
                 <div className="flex items-center">
-                    <Password className="absolute w-5 h-5 "/>
+                    <Password className="absolute mx-2 w-5 h-5 "/>
                     <input type="password" placeholder="Confirm Password..."
                 onChange={handleChange}
                 name="confPass"
                 value={newUser.confPass}
-                className="border  rounded-lg h-11 w-full font-normal font-serif text-xl px-7
+                className="border  rounded-lg h-11 w-full font-normal font-serif text-xl pl-10 pr-10
                 hover:border-2 hover:border-amber-300"
                 />
                 </div>

@@ -7,6 +7,7 @@ import Pricing from './pages/pricing';
 import Features from './pages/features';
 import Login from './pages/login';
 import Dashboard from './pages/dashboard';
+import ResetPassword from './pages/reset_pwd';
 import Register from './pages/regitser';
 import { Routes, Route } from 'react-router-dom';
 
@@ -25,6 +26,7 @@ function App() {
           <Route path='/login' element = {<Login/>}/>
           <Route path='/register' element = {<Register/>}/>
           <Route path='/dashboard' element = {<Dashboard username="Jallen"/>}/>
+          <Route path='/reset_pwd' element = {<ResetPassword email="jallen@100"/>}/>
       </Routes>
       </main>
 
