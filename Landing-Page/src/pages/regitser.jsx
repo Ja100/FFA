@@ -38,7 +38,7 @@ export default function Register () {
     return (
         <div className="flex flex-col items-center">
             <form action="" onSubmit={handleSubmit}
-            className="bg-gray-500 border rounded-2xl h-100 w-96 my-28 flex gap-4 flex-col items-center justify-center">
+            className="bg-gray-500 border rounded-2xl h-120 w-96 my-14 flex gap-4 flex-col items-center justify-center">
                 <label className="py-4 text-white font-semibold  text-3xl"> Sign UP </label>
                 <div className="relative flex items-center">
                     <User className="absolute mx-2 w-5 h-5"/>

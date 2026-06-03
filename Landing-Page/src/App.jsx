@@ -25,7 +25,7 @@ function App() {
           <Route path="/features" element= {<Features/>}></Route>
           <Route path='/login' element = {<Login/>}/>
           <Route path='/register' element = {<Register/>}/>
-          <Route path='/dashboard' element = {<Dashboard username="Jallen"/>}/>
+          <Route path='/dashboard' element = {<Dashboard/>}/>
           <Route path='/reset_pwd' element = {<ResetPassword email="jallen@100"/>}/>
       </Routes>
       </main>

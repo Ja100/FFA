@@ -1,4 +1,4 @@
-import { Sparkles, MessageSquareQuote as TestimonyIcon, Tag as PriceIcon } from "lucide-react"
+import { Sparkles, MessageSquareQuote as TestimonyIcon, Tag as PriceIcon, UserPlus, UserCheck } from "lucide-react"
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.jpg"
 function Navbar(){
@@ -14,28 +14,44 @@ function Navbar(){
                 />
             </Link>
             
-            <ul className="flex items-center justify-end gap-3 text-md font-semibold font-serif">
+            <ul className="flex items-center justify-end gap-x-4 text-sm font-semibold font-serif">
                 <li 
-                className="bg-amber-500 rounded-md w-40 h-9 cursor-pointer flex gap-2 items-center justify-center 
+                className="bg-amber-500 rounded-md w-36 h-9 cursor-pointer flex gap-2 items-center justify-center 
                 transition-all duration-300 ease-in-out hover:bg-slate-100 hover:text-slate-900">
-                    <TestimonyIcon/>
+                    <TestimonyIcon size={18}/>
                     <Link to="/testimonials">
                      Testimonials</Link> 
                 </li>
                 <li 
-                className="bg-green-500 w-32 h-9 cursor-pointer flex gap-2 items-center justify-center rounded-md
+                className="bg-green-500 w-28 h-9 cursor-pointer flex gap-2 items-center justify-center rounded-md
                 transition-all duration-300 ease-in-out hover:bg-slate-100 hover:text-slate-900">
-                   <Sparkles/>
+                   <Sparkles size={18}/>
                    <Link to="/features">Features</Link>
                 </li>
                 <li 
-                className="bg-teal-600 w-32 h-9 cursor-pointer flex gap-2 items-center justify-center rounded-md 
+                className="bg-teal-600 w-28 h-9 cursor-pointer flex gap-2 items-center justify-center rounded-md 
                 transition-all duration-300 ease-in-out hover:bg-slate-100 hover:text-slate-900">
-                    <PriceIcon/>
+                    <PriceIcon size={18}/>
                     <Link to="/pricing">Pricing</Link>
+                </li>
+                <div className="h-14 w-0.5 bg-cyan-600/60" />
+                <li 
+                className="px-4 py-2 cursor-pointer text-lg flex gap-2 items-center justify-center
+                transition-colors duration-200 hover:text-amber-400">
+                   <UserCheck size={18}/>
+                   <Link to="/login">Login</Link>
+                </li>
+                <li 
+                className="bg-white text-cyan-950 px-4 h-9 cursor-pointer flex gap-2 items-center justify-center 
+                rounded-md 
+                transition-all duration-300 ease-in-out 
+                hover:bg-amber-500 hover:text-white">
+                    <UserPlus size={18}/>
+                    <Link to="/register">Sign Up</Link>
                 </li>
             </ul>
         </div>
+
         
     
     )

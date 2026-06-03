@@ -1,6 +1,8 @@
-import { useState } from "react"
+import { useState} from "react"
 import { Navigate } from "react-router-dom";
 import { Mail, Lock } from "lucide-react";
+import Portal from "../components/portal";
+
 export default function Login () {
     const user = {
         username:   'Jallen',
@@ -8,23 +10,28 @@ export default function Login () {
         password: 'Jallen100'
     };
 
+    const [isOpen, setIsOpen] = useState(false);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isLogged, setIsLogged] = useState(false);
     if(isLogged){
-        return <Navigate to="/dashboard"/>
+        return <Navigate to="/dashboard" state={ {username: user.username}}/>
     }
+
+   
 
     function handleSubmit(e){
         e.preventDefault();
         if(email === user.email && password === user.password){
-            setIsLogged(true);
+            setIsOpen(true);
             return;
         } 
         if(email === '' || password === ''){
-            alert('Fill the fields')
+            alert('Fill the fields');
+            return;
         } else{
-            alert('Incorrect username or password..!')
+            alert('Incorrect username or password..!');
+            return;
         }
     }
 
@@ -58,6 +65,12 @@ export default function Login () {
                 >Login</button>
                 <a href="/register" className="underline">Register</a>
                 <a href="/reset_pwd" className="underline">Forgot Password</a>
+
+                    <Portal isOpen={isOpen} onClose={() => setIsLogged(true)} >
+                        <p>Logged In Successfully</p>
+                    </Portal>
+                
+                
             </form>
         </div>
 
