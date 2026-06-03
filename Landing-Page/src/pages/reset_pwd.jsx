@@ -1,9 +1,16 @@
 import { useState } from "react"
 import { Mail } from "lucide-react";
+import Portal from "../components/portal";
+
 export default function ResetPassword (props) {
 
+    const [isOpen, setIsOpen] = useState(false);
     const [mail, setMail] = useState('');
     const [errors, setErrors] = useState({})
+
+    function handlePortal(){
+        setIsOpen(true)
+    }
     
     function handleSubmit(e){
         e.preventDefault();
@@ -15,14 +22,15 @@ export default function ResetPassword (props) {
             setErrors( {message: 'Enter the Email Address..', valid:false })
             return;
         } else{
-            setErrors( {message: 'Email not Found.!'} )
+            setErrors( {message: 'Wrong Email Address.!'} )
+            
         }
     }
     const isSuccess = errors.message === 'Great, email Found..!'
 
 
     return (
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center p-4">
             <form action="" onSubmit={handleSubmit}
             className="bg-mauve-400 border rounded-2xl h-96 w-96 my-28 flex gap-4 flex-col items-center justify-center">
                 <label className="py-4 text-white font-semibold  text-3xl"> Reset Password </label>
@@ -38,17 +46,26 @@ export default function ResetPassword (props) {
                     'border-2 border-green-500' : 'border-2 border-red-500'} `} />
 
                 </div>
+                
                 {errors.message && (
-                    <p className={`text-md font-medium 
+                    
+                    <Portal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+                    <p className={`font-medium 
                         ${errors.valid ? 'text-green-900' : 'text-red-500'}
                         `}>
                         {errors.message}</p>
+                </Portal>
+                        
                 )}
                 <button type="submit"
+                
                 className="border bg-blue-600 rounded-lg h-11 w-3xs text-white font-normal font-serif text-xl
                 hover:cursor-pointer hover:bg-sky-800"
+                onClick={handlePortal}
                 >RESET</button>
+                
             </form>
+                
         </div>
 
     )
