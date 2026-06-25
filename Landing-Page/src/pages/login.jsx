@@ -14,6 +14,7 @@ export default function Login () {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isLogged, setIsLogged] = useState(false);
+    // const [errors, setErrors] = useState({})
     if(isLogged){
         return <Navigate to="/dashboard" state={ {username: user.username}}/>
     }
@@ -27,9 +28,11 @@ export default function Login () {
             return;
         } 
         if(email === '' || password === ''){
+            // setErrors( { message: 'Fill the Fields'});
             alert('Fill the fields');
             return;
         } else{
+            // setErrors( { message: 'Fill the Fields'});
             alert('Incorrect username or password..!');
             return;
         }
@@ -63,6 +66,7 @@ export default function Login () {
                 className="border bg-blue-600 rounded-lg h-11 w-3xs text-white font-normal font-serif text-xl
                 hover:cursor-pointer hover:bg-sky-800"
                 >Login</button>
+                {/* <p>{errors.message}</p> */}
                 <a href="/register" className="underline">Register</a>
                 <a href="/reset_pwd" className="underline">Forgot Password</a>
 

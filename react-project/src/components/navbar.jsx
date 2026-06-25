@@ -1,8 +1,13 @@
 import { Link } from 'react-router-dom';
 import {Navigation as NavIcon, Menu, X, Home as HomeIcon, Briefcase as ServiceIcon, Mail as ContactIcon, NotepadText as Notepad, LogIn} from "lucide-react";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 export const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [title, setTitle] = useState("");
+
+    useEffect(() => {
+        document.title = title;
+    }, [title])
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     }
@@ -20,25 +25,25 @@ export const Navbar = () => {
                 </li>
                 <li 
                 className="text-sm h-10 border flex justify-center items-center gap-2 rounded-md  w-24  bg-amber-700  cursor-pointer hover:bg-blue-600">
-                    <Link to="/">Home</Link><HomeIcon/>
+                    <Link to="/" onClick={ () => setTitle("Home")}>Home</Link><HomeIcon/>
                 </li>
                 <li 
                 className="text-sm h-10 border flex justify-center items-center gap-2 rounded-md  w-24  bg-amber-500  cursor-pointer hover:bg-blue-600">
-                    <Link to="/contact">Contacts</Link><ContactIcon/>
+                    <Link to="/contact"onClick={ () => setTitle("Contacts")}>Contacts</Link><ContactIcon/>
                 </li>
                 
                 <li 
                 className="text-sm h-10 border flex justify-center items-center gap-2 rounded-md  w-24  bg-teal-600  cursor-pointer hover:bg-blue-600">
-                    <Link to="/service">Services</Link><ServiceIcon/>
+                    <Link to="/service"onClick={ () => setTitle("Service")}>Services</Link><ServiceIcon/>
                 </li>
 
                 <li 
                 className="text-sm h-10 border flex justify-center items-center gap-2 rounded-md  w-24  bg-green-600  cursor-pointer hover:bg-blue-600">
-                    <Link to="/notes">To-Do</Link><Notepad/>
+                    <Link to="/notes"onClick={ () => setTitle("Notes")}>To-Do</Link><Notepad/>
                 </li>
                 <li 
                 className="text-sm h-10 border flex justify-center items-center gap-2 rounded-md  w-24  bg-cyan-700  cursor-pointer hover:bg-blue-600">
-                    <Link to="/login">Login</Link><LogIn/>
+                    <Link to="/login"onClick={ () => setTitle("Login")}>Login</Link><LogIn/>
                 </li>
             </ul>
             
@@ -47,23 +52,23 @@ export const Navbar = () => {
                 flex flex-col items-center py-3 gap-3 rounded-md w-36 bg-emerald-700'>
                     <li 
                 className="text-sm h-10 border flex justify-center items-center gap-2 rounded-md  w-24  bg-amber-700  cursor-pointer hover:bg-blue-600">
-                    <Link to="/">Home</Link><HomeIcon/>
+                    <Link to="/" onClick={ () => setTitle("Home")}>Home</Link><HomeIcon/>
                 </li>
                 <li 
                 className="text-sm h-10 border flex justify-center items-center gap-2 rounded-md  w-24  bg-amber-500  cursor-pointer hover:bg-blue-600">
-                    <Link to="/contact">Contacts</Link><ContactIcon/>
+                    <Link to="/contact" onClick={ () => setTitle("Contact")}>Contacts</Link><ContactIcon/>
                 </li>
                 <li 
                 className="text-sm h-10 border flex justify-center items-center gap-2 rounded-md  w-24  bg-teal-600  cursor-pointer hover:bg-blue-600">
-                    <Link to="/service">Services</Link><ServiceIcon/>
+                    <Link to="/service" onClick={ () => setTitle("Services")}>Services</Link><ServiceIcon/>
                 </li>
                 <li 
                 className="text-sm h-10 border flex justify-center items-center gap-2 rounded-md  w-24  bg-green-600  cursor-pointer hover:bg-blue-600">
-                    <Link to="/notes">To-Do</Link><Notepad/>
+                    <Link to="/notes" onClick={ () => setTitle("Notes")}>To-Do</Link><Notepad/>
                 </li>
                 <li 
                 className="text-sm h-10 border flex justify-center items-center gap-2 rounded-md  w-24  bg-cyan-700  cursor-pointer hover:bg-blue-600">
-                    <Link to="/login">Login</Link><LogIn/>
+                    <Link to="/login" onClick={ () => setTitle("Login")}>Login</Link><LogIn/>
                 </li>
                 </div>
             )}

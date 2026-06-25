@@ -1,7 +1,24 @@
-import { Suspense, lazy, useState } from "react";
+import { Suspense, lazy, useState, useEffect } from "react";
 import Portal from "../components/Portal";
     
 export const Home = ()=>{
+
+    const [count, setCount] = useState(() =>{
+        const savedCount = localStorage.getItem('my_count');
+        return savedCount ? JSON.parse(savedCount) : 0
+    });
+    const [users,setUsers] = useState([]);
+    const [open, setOpen] = useState(false)
+
+    function fetchUsers() {
+        fetch("https://dummyjson.com/users")
+        .then(res => res.json())
+        .then(data => setUsers(data.users))
+    }
+    useEffect(() => {
+        fetchUsers();   
+        localStorage.setItem('my_count', JSON.stringify(count));
+    }, [count])
 
     const [isOpen, setIsOpen] =useState(true)
     const Button = lazy(() => import("../components/Button"))
@@ -38,9 +55,23 @@ export const Home = ()=>{
     return (
         <>
 
-         <div>
+         <div className="flex flex-col items-center justify-center">
             
             <h1 className=" text-2xl gap-2 font-medium text-gray-800">HOME </h1>
+            <button className="rounded-md bg-blue-500 border" 
+            onClick={() => setOpen(!open)}>
+                {open ? "Hide Users" : "Fetch Users"}
+            </button>
+            {open && (
+                <ul>
+                {users.map(user => (
+                    <li key={user.id}>
+                        {user.lastName} {user.firstName}</li>
+                ))}
+            </ul>
+            )}
+            <h1>Count : {count}</h1>
+            <button onClick={() => setCount(count + 1)}> Increment</button>
             {/* <div>
                 <h1>React Portal Test</h1>
                 <button className="border rounded-full bg-blue-500 w-28 cursor-pointer hover:bg-red-300 hover:text-gray-700" 
