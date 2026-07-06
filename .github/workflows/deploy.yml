@@ -1,0 +1,40 @@
+name: Deploy SkillForge to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Change this to master if your default branch is called master
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # 1. Move into SkillForge and install dependencies
+      - name: Install Dependencies
+        run: |
+          cd SkillForge
+          npm install
+
+      # 2. Build the project inside SkillForge
+      - name: Build Project
+        run: |
+          cd SkillForge
+          npm run build
+
+      # 3. Deploy the build folder (Vite uses 'dist', Create React App uses 'build')
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: SkillForge/dist # ⚠️ Change 'dist' to 'build' if this is a Create React App
+          branch: gh-pages
