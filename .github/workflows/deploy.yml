@@ -36,5 +36,5 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: SkillForge/dist # ⚠️ Change 'dist' to 'build' if this is a Create React App
+          folder: SkillForge/client/dist # ⚠️ Change 'dist' to 'build' if this is a Create React App
           branch: gh-pages
