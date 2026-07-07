@@ -17,8 +17,7 @@ const corsOptions = {
         methods: ['GET', 'POST'],
         allowedHeaders: ['Content-Type', 'Authorization']
     }
-app.use(cors(corsOptions))
-app.options('*', cors(corsOptions)); //Handle preflight (OPTIONS) requests globally
+app.use(cors(corsOptions));
 
 //middleware
 app.use(express.json());
