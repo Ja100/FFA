@@ -9,7 +9,7 @@ connectDB();
 const app = express();
 app.use(
     cors({
-        origin: 'http://localhost:5173',
+        origin: ['http://localhost:5173', 'https://ja100.github.io'],
         credentials: true
     })
 );
@@ -25,7 +25,7 @@ app.get('/', (req,res) => {
     res.send('Welcome to the SERVER SIDE.!')
 });
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 5000, () => {
     console.log(`server is running on port ${process.env.PORT}`);
     
 });
