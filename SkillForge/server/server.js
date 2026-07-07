@@ -9,17 +9,16 @@ const connectDB = require('./config/db')
 connectDB();
 
 const app = express();
-app.use(
-    cors({
-        origin: [
-            'http://localhost:5173', // for local development
-            'https://ffa-navy.vercel.app/'], // for vercel
-
+const corsOptions = {
+    origin: [
+        'http://localhost:5173', // for local development
+        'https://ffa-navy.vercel.app/'], // for vercel
         credentials: true, //For passing cookies / tokens when needed
         methods: ['GET', 'POST'],
         allowedHeaders: ['Content-Type', 'Authorization']
-    })
-);
+    }
+app.use(cors(corsOptions))
+app.options('*', cors(corsOptions)); //Handle preflight (OPTIONS) requests globally
 
 //middleware
 app.use(express.json());
