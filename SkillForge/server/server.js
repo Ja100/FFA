@@ -9,8 +9,13 @@ connectDB();
 const app = express();
 app.use(
     cors({
-        origin: ['http://localhost:5173', 'https://ja100.github.io'],
-        credentials: true
+        origin: [
+            'http://localhost:5173', // for local development
+            'https://ffa-navy.vercel.app/'], // for vercel
+
+        credentials: true, //For passing cookies / tokens when needed
+        methods: ['GET', 'POST'],
+        allowedHeaders: ['Content-Type', 'Authorization']
     })
 );
 
