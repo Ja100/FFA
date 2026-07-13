@@ -14,13 +14,13 @@ import Tasks from './pages/tasks';
 import Settings from './pages/settings';
 import Support from './pages/support';
 import Privacy from './pages/privacy';
-import { Dashboard } from './pages/lessonDashboard';
+import Dashboard  from './pages/Dashboard';
 import axios from 'axios';
 import { UserContextProvider } from '../context/userContext'
 import { Toaster } from 'react-hot-toast'; //for error/success Notification
 
-// axios.defaults.baseURL = 'http://localhost:5000'; // Development PORT server
-axios.defaults.baseURL = 'https://ffa-synj.onrender.com';
+axios.defaults.baseURL = 'http://localhost:5000'; // Development PORT server
+axios.defaults.baseURL = 'https://ffa-synj.onrender.com'; // Deployment PORT server
 axios.defaults.withCredentials = true;  // give all credentrials to connect to that server port
 
 function App() {

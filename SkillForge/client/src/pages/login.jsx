@@ -1,10 +1,12 @@
 import axios from "axios"; // FECTH can also work but thats easier
-import { useState } from "react";
+import { useContext, useState } from "react";
 import {toast} from 'react-hot-toast';
 import { useNavigate} from 'react-router-dom'
+import { UserContext } from "../../context/userContext";
 
 function Login (){
     const navigate = useNavigate();
+    const { setUser } = useContext(UserContext)
     const [data, setData] = useState({
         email: '',
         password: '',
@@ -21,9 +23,10 @@ function Login (){
             if(data.error) { 
                 toast.error(data.error)
             } else {
-                setData({});
+                setUser(data) // this is for global state so Dashboard reads user info
+                setData({ email: '', password: ''});
                 toast.success('Logged in Successfully')
-                navigate('/');
+                navigate('/dashboard');
             }
             
         } catch (error) {
@@ -38,12 +41,12 @@ function Login (){
             className="flex flex-col gap-y-4">
                 <input 
                 className="border-2 border-slate-200 p-2.5 pl-3.5 text-slate-900 rounded-md focus:outline-none placeholder:text-slate-200 placeholder:text-center"
-                value={data.email} onChange={(e) => setData({...data, email: e.target.value})}
+                value={data.email || ''} onChange={(e) => setData({...data, email: e.target.value})}
                 type="email" placeholder="EMAIL"/>
                 
                 <input 
                 className="border-2 border-slate-200 p-2.5 pl-3.5 text-slate-900 rounded-md focus:outline-none placeholder:text-slate-200 placeholder:text-center"
-                value={data.password} onChange={(e) => setData({...data, password: e.target.value})}
+                value={data.password || ''} onChange={(e) => setData({...data, password: e.target.value})}
                 type="password" placeholder="PASSWORD"/>
 
                 <button className="bg-indigo-800 w-full p-2.5 text-slate-200 text-xl font-bold cursor-pointer rounded-xl hover:bg-indigo-900"
