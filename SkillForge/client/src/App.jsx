@@ -1,6 +1,10 @@
-import Navbar from './components/navbar';
-import Sidebar from './components/sidebar';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
+
+//layouts
+import DashboardLayout from '../layouts/DashboardLayout';
+import AuthLayout from '../layouts/AuthLayout';
+
+//pages
 import Home from './pages/home';
 import About from './pages/about';
 import Services from './pages/services';
@@ -24,36 +28,38 @@ axios.defaults.baseURL = 'https://ffa-synj.onrender.com'; // Deployment PORT ser
 axios.defaults.withCredentials = true;  // give all credentrials to connect to that server port
 
 function App() {
-  const location = useLocation()
-  const hideSidebarRoutes = ['/login', '/register'];
-  const shouldHideSidebar = hideSidebarRoutes.includes(location.pathname)
 
   return (
     <UserContextProvider>
       <div className='flex flex-col h-screen max-h-screen bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-200 transition-colors duration-800'>
-        <Navbar/>
         <Toaster position='bottom-right' toastOptions={{duration: 2000}} />
-        <div className='flex flex-1 h-full overflow-hidden'>
-          {!shouldHideSidebar && <Sidebar/>}
-        <main className=' py-12  flex flex-1 justify-center overflow-y-auto'>
+  
+        <main className=' overflow-y-auto'>
           <Routes>
-            <Route path='/' element = {<Home/>}></Route>
-            <Route path='/about' element = {<About/>}></Route>
-            <Route path='/services' element = {<Services/>}></Route>
-            <Route path='/login' element = {<Login/>}></Route>
-            <Route path='/register' element = {<Register/>}></Route>
-            <Route path='/courseDetails/:title' element = {<Course/>}></Route>
-            <Route path='/profile' element = {<Profile/>}></Route>
-            <Route path='/messages' element = {<Message/>}></Route>
-            <Route path='/communities' element = {<Communities/>}></Route>
-            <Route path='/tasks' element = {<Tasks/>}></Route>
-            <Route path='/settings' element = {<Settings/>}></Route>
-            <Route path='/support' element = {<Support/>}></Route>
-            <Route path='/privacy' element = {<Privacy/>}></Route>
-            <Route path= '/dashboard' element = {<Dashboard/>}></Route>
+            //Public Routes
+            <Route element = {<AuthLayout/>}>
+              <Route path='/' element = {<Home/>}/>
+              <Route path='/about' element = {<About/>}/>
+              <Route path='/services' element = {<Services/>}/>
+              <Route path='/login' element = {<Login/>}/>
+              <Route path='/register' element = {<Register/>}/>
+            </Route>
+
+            //Protected Routes/Dashboard Routes
+            <Route element = {<DashboardLayout/>}>
+              <Route path='/courseDetails/:title' element = {<Course/>}/>
+              <Route path='/profile' element = {<Profile/>}/>
+              <Route path='/messages' element = {<Message/>}/>
+              <Route path='/communities' element = {<Communities/>}/>
+              <Route path='/tasks' element = {<Tasks/>}/>
+              <Route path='/settings' element = {<Settings/>}/>
+              <Route path='/support' element = {<Support/>}/>
+              <Route path='/privacy' element = {<Privacy/>}/>
+              <Route path= '/dashboard' element = {<Dashboard/>}/>
+            </Route>
+
           </Routes>
         </main>
-      </div>
       </div>
     </UserContextProvider>
   )

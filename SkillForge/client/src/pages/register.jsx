@@ -33,10 +33,11 @@ function Register (){
     }
 
     return(
-        <div className="bg-indigo-600/70 flex flex-col items-center space-y-8 justify-center rounded-4xl h-4/5 w-96">
-            <h1 className="text-slate-100 font-medium text-2xl"> User Registration</h1>
+        <div className=" flex justify-center h-full">
             <form onSubmit={registerUser}
-            className="flex flex-col gap-y-6 ">
+            className="mt-16 bg-indigo-600/70 flex flex-col justify-center items-center gap-y-6 
+            space-y-8 rounded-4xl h-135 w-80">
+                <label className="text-slate-100 font-medium text-2xl"> User Registration</label>
                 <input 
                 className="border-2 border-slate-200 p-2.5 pl-3.5 text-slate-900 rounded-md focus:outline-none placeholder:text-slate-200 placeholder:text-center"
                 value={data.name} onChange={(e) => setData({...data, name: e.target.value})}
@@ -51,7 +52,7 @@ function Register (){
                 value={data.password} onChange={(e) => setData({...data, password: e.target.value})}
                 type="password" placeholder="PASSWORD"/>
 
-                <button className="bg-indigo-800 w-full p-2.5 text-slate-200 text-xl font-bold cursor-pointer rounded-xl hover:bg-indigo-900"
+                <button className="bg-indigo-800 w-56 p-2.5 text-slate-200 text-xl font-bold cursor-pointer rounded-xl hover:bg-indigo-900"
                 type="submit">Register</button>
             </form>
         </div>

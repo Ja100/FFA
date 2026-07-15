@@ -12,7 +12,7 @@ export default function Navbar (){
     
     return (
         <nav 
-        className="sticky top-0 border-b border-slate-200
+        className="sticky top-0 border-b border-slate-200 bg-slate-50
         flex items-center justify-between px-6 py-4 lg:px-14 transition-all duration-500 z-50">
 
             <div className="flex items-center gap-2 font-sans font-bold text-xl ">
