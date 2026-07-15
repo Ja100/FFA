@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Banner from '../assets/banner.png';
-import student from '../assets/image2.jfif';
-import library from '../assets/image3.jfif'
+import mission from '../assets/mission.png';
+import vision from '../assets/vision.png'
 export default function HeroSection (){
 
     return (
@@ -12,7 +12,7 @@ export default function HeroSection (){
 
             </div>
             <div 
-            className='border border-gray-400 rounded-xl max-w-90 md:max-w-4xl px-2 py-8 my-4  
+            className='border border-gray-400 rounded-xl max-w-90 md:max-w-4xl px-2 md:px-6 py-8 my-4  
                         flex flex-col gap-3 justify-center'>
                 <div className='md:w-full text-xl md:text-fit'>
                     <p className='mb-4 text-justify md:text-left'>
@@ -23,14 +23,14 @@ export default function HeroSection (){
                 <div className=''>
                     <div className='flex flex-col md:flex-row md:w-fit'>
                         <div className='flex flex-col md:w-1/2 shrink-0'>
-                            <div className=' flex flex-col md:h-54.5 gap-y-4 bg-indigo-400 dark:bg-indigo-700/50 px-4 md:px-6 pt-4 pb-6'>
+                            <div className=' flex flex-col md:h-54.5 gap-y-4 bg-blue-200 dark:bg-indigo-700/50 px-4 md:px-6 pt-4 pb-6'>
                                 <h1 className='font-bold text-lg'>Our vision</h1>
-                                <span className='text-left md:leading-relaxed'>
-                                    Our vision is to be a pole of radiance and excellence nationally and internationally, with quality education, research and provision of innovative service to the community.
+                                <span className='text-left md:leading-relaxed '>
+                                    To forge a global, inclusive community of empowered creators, innovators, and future leaders who not only possess technical mastery but also harbor the unwavering resolve to define the future of technology and build a more resilient and equitable industry.
                                 </span>
                             </div>
                             <div className='w-full min-h-0'>
-                                <img src={library} alt="UoK Students"
+                                <img src={vision} alt="Skillforge Vision Image"
                                 className=' object-cover object-center h-full w-full'/>
                             </div>
                         </div>
@@ -40,11 +40,11 @@ export default function HeroSection (){
                                 className='bg-red-300 flex md:h-54.5 dark:bg-pink-400/50 flex-col gap-y-4 md:w-full px-4 md:px-6 pt-4 pb-6'>
                                 <h1 className='font-bold text-nowrap md:text-right'>Our Mission and Motto</h1>
                                 <span className='md:text-right md:leading-relaxed'>
-                                    Our mission is to provide quality higher education programmes that match the labour market and development needs of Rwanda, the region and the world. Our motto is Labour for the Future.
+                                    To provide a rigorous, hands-on learning environment where ambitious individuals acquire the practical skills, expert knowledge, and real-world experience needed to accelerate their careers and build meaningful innovations.
                                 </span>
                             </div>
                             <div className='w-full min-h-0'>
-                                <img src={student} alt="UoK Students"
+                                <img src={mission} alt="Skillforge Mission Image"
                                 className='object-center object-cover h-full w-full' />
                             </div>
                         </div>
