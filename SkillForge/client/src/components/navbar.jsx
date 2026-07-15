@@ -9,6 +9,9 @@ export default function Navbar (){
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     }
+    const handleLinkClick = () => {
+        setIsOpen(false)
+    }
     
     return (
         <nav 
@@ -45,33 +48,33 @@ export default function Navbar (){
                         bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600
                     rounded-xl shadow-md shadow-indigo-600/20 transition-all">
                     Get started</Link>
-                <div className="hidden md:flex h-7 w-0.5   mx-1"></div>
+                <div className="hidden md:flex h-7 w-0.5 mx-1"></div>
                 <ThemeToggle/>
             </div>
 
-            <button className='flex justify-center items-center w-12 h-12 hover:cursor-pointer md:hidden rounded-full '
+            <button className='flex justify-center items-center w-12 h-12 hover:cursor-pointer md:hidden rounded-full'
                 onClick={toggleMenu}>
                     {isOpen ? <X className='w-7 h-7 '/> : <Menu className='w-7 h-7 '/>} 
             </button>
                 
                 {isOpen && (
-                    <div className="absolute top-16 right-1 md:hidden sm:flex
-                 items-center px-3 rounded-sm w-40 ">
+                    <div className="bg-cyan-800 w-full absolute top-16 right-1 md:hidden sm:flex
+                 items-center mt-3 text-slate-100 px-6 pt-3 pb-3 rounded-2xl">
                     <ul className="py-2 flex flex-col gap-y-2">
                         <li>
-                            <Link to="/"> Home </Link>
+                            <Link to="/" onClick={handleLinkClick}> Home </Link>
                         </li>
                         <li>
-                            <Link to="/about">About</Link>
+                            <Link to="/about" onClick={handleLinkClick}>About</Link>
                         </li>
                         <li>
-                            <Link to="/services">Services</Link>
+                            <Link to="/services" onClick={handleLinkClick}>Services</Link>
                         </li>
                         <li>
-                            <Link to="/login">Login</Link>
+                            <Link to="/login" onClick={handleLinkClick}>Login</Link>
                         </li>
                         <li>
-                            <Link to="/register">Get started</Link>
+                            <Link to="/register" onClick={handleLinkClick}>Get started</Link>
                         </li>
                     </ul>
                     </div>
