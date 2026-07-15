@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Campus from '../assets/auca.jpg';
+import Banner from '../assets/banner.png';
 import student from '../assets/image2.jfif';
 import library from '../assets/image3.jfif'
 export default function HeroSection (){
@@ -7,23 +7,23 @@ export default function HeroSection (){
     return (
         <section className='w-full flex flex-col items-center'>
             <div className='h-60 md:h-112.5 w-full overflow-hidden rounded-full'>
-                <img src={Campus} alt="UoK Kigali Campus" 
+                <img src={Banner} alt="Banner" 
                 className='h-full w-full object-cover object-center dark:brightness-[0.75] dark:contrast-[1.05]' />
 
             </div>
             <div 
-            className='border border-gray-400 rounded-xl max-w-100 md:max-w-4xl px-4 py-8 my-4  
+            className='border border-gray-400 rounded-xl max-w-90 md:max-w-4xl px-2 py-8 my-4  
                         flex flex-col gap-3 justify-center'>
                 <div className='md:w-full text-xl md:text-fit'>
-                    <p className='text-justify md:text-left '>
-                    Adventist University Central Africa is one of the leading private higher education institutions of learning in Rwanda. AUCA is a fully accredited and chartered University by the Government of the Republic of Rwanda. AUCA has two campuses: the main campus, located at KG 230 St road, near RDB Building, and the Masoro campus is located at KG 162 Avenue, near Evangelical Restoration Church (Kwa Masasu).
+                    <p className='mb-4 text-justify md:text-left'>
+                        SkillForge is the ultimate digital anvil where ambition meets action. Designed for modern learners, creators, and tech enthusiasts, our platform bridges the gap between theoretical knowledge and industry-ready expertise through expert-led courses, hands-on projects, and career-driven paths. Whether you are refining your development toolkit, mastering complex new technologies, or starting your learning journey from scratch, SkillForge provides the structured guidance and practical experience you need to shape your future. Stop just studying and start building, and forge the skills that define tomorrow.
                 </p>
                 </div>
                 
                 <div className=''>
-                    <div className='flex'>
-                        <div className=' flex flex-col w-1/2 shrink-0'>
-                            <div className='flex flex-col md:h-54.5 gap-y-4 bg-indigo-400 dark:bg-indigo-700/50 px-4 md:px-6 pt-6 pb-6'>
+                    <div className='flex flex-col md:flex-row md:w-fit'>
+                        <div className='flex flex-col md:w-1/2 shrink-0'>
+                            <div className=' flex flex-col md:h-54.5 gap-y-4 bg-indigo-400 dark:bg-indigo-700/50 px-4 md:px-6 pt-4 pb-6'>
                                 <h1 className='font-bold text-lg'>Our vision</h1>
                                 <span className='text-left md:leading-relaxed'>
                                     Our vision is to be a pole of radiance and excellence nationally and internationally, with quality education, research and provision of innovative service to the community.
@@ -35,11 +35,11 @@ export default function HeroSection (){
                             </div>
                         </div>
 
-                        <div className='flex flex-col md:w-1/2'>
+                        <div className='flex flex-col md:w-1/2 shrink-0'>
                             <div 
-                                className='flex bg-red-300 dark:bg-pink-400/50 flex-col gap-y-4 w-48.5 md:w-full px-3 md:px-6 pt-6 pb-6'>
+                                className='bg-red-300 flex md:h-54.5 dark:bg-pink-400/50 flex-col gap-y-4 md:w-full px-4 md:px-6 pt-4 pb-6'>
                                 <h1 className='font-bold text-nowrap md:text-right'>Our Mission and Motto</h1>
-                                <span className='text-right md:leading-relaxed'>
+                                <span className='md:text-right md:leading-relaxed'>
                                     Our mission is to provide quality higher education programmes that match the labour market and development needs of Rwanda, the region and the world. Our motto is Labour for the Future.
                                 </span>
                             </div>
